@@ -4,4 +4,4 @@ Este mini proyecto representa una estructura académica simplificada con el obje
 
 Forma parte de una serie de proyectos prácticos educativos alineados con publicaciones técnicas en LinkedIn.  
 El enfoque de este módulo es **entender, aplicar y probar las relaciones entre tablas y sus comportamientos ON DELETE / ON UPDATE** en distintos escenarios.
-
+dsad
