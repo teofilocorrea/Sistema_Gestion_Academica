@@ -1,4 +1,4 @@
-![Portada del Proyecto](docs/img/title_gestion_academica)
+![Portada del Proyecto](docs/img/title_gestion_academica.png)
 
 # 🎓 Sistema de Gestión Académica – Relaciones en Foreign Keys (SQL Server)
 
