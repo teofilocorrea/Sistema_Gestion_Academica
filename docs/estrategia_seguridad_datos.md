@@ -14,7 +14,7 @@ Este documento presenta las medidas de seguridad aplicadas a los campos sensible
 | Students  | birthdate    | `partial(...)`   | Oculta la fecha completa para ciertos perfiles |
 
 
-## 🛡️ Clasificación de Sensibilidad de Datos
+## 2. 🛡️ Clasificación de Sensibilidad de Datos
 
 Esta sección identifica los campos considerados sensibles dentro del modelo, y sugiere etiquetas oficiales de clasificación compatibles con SQL Server.
 
