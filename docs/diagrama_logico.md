@@ -87,3 +87,8 @@ Aún no se han definido claves foráneas ni constraints relacionales, ya que est
 - Cada atributo almacena un único valor por celda.
 - No existen listas ni concatenaciones de datos dentro de los campos.
 - Cada columna representa una propiedad indivisible del estudiante.
+
+📌 Documento mantenido por:  
+**Teófilo Correa Rojas**  
+📅 Fecha: `Julio 28, 2025`  
+📁 Proyecto: *Sistema de Gestión Académica – Acciones en FK*
