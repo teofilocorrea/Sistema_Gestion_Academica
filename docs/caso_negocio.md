@@ -22,3 +22,10 @@ Este modelo contempla las siguientes áreas funcionales:
 | Matrícula de cursos    | `Enrollments`        | Inscripción de estudiantes en cursos específicos   |
 
 Cada relación entre estas entidades será configurada con diferentes tipos de acciones FK (`NO ACTION`, `CASCADE`, `SET NULL`) para analizar su impacto y comportamiento.
+
+---
+
+📌 Documento mantenido por:  
+**Teófilo Correa Rojas**  
+📅 Fecha: `Julio 25, 2025`  
+📁 Proyecto: *Sistema de Gestión Académica – Acciones en FK*
