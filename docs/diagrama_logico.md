@@ -57,14 +57,23 @@ Aún no se han definido claves foráneas ni constraints relacionales, ya que est
 
 ### Tabla: `Enrollments`
 
-| Columna       | Tipo de dato     | Descripción                                                                                 |
-|---------------|------------------|---------------------------------------------------------------------------------------------|
-| Enrollment_Id | INT (PK)         | ID del registro de matrícula                                                                |
-| Student_Id    | INT              | Estudiante inscrito (posible FK)                                                            |
-| Course_Id     | INT              | Curso inscrito (posible FK)                                                                 |
-| Enrolled_At   | DATE             | Fecha de inscripción                                                                        |
-| Grade         | DECIMAL(4,2)     | Nota final del curso (si aplica)                                                            |
-| Status        | NVARCHAR(20)     | Estado: Inscrito, Retirado, Aprobado, etc. Se puede crear una tabla para manejar ese status |
+| Columna       | Tipo de dato | Descripción                      |
+|---------------|--------------|----------------------------------|
+| Enrollment_Id | INT (PK)     | ID del registro de matrícula     |
+| Student_Id    | INT          | Estudiante inscrito (posible FK) |
+| Course_Id     | INT          | Curso inscrito (posible FK)      |
+| Enrolled_At   | DATE         | Fecha de inscripción             |
+| Grade         | DECIMAL(4,2) | Nota final del curso (si aplica) |
+| Status_Id     | INT          | Estatus de inscrito (posible FK) |
+
+---
+### Tabla: `Status`
+
+| Columna     | Tipo de dato | Descripción                      |
+|-------------|--------------|----------------------------------|
+| Status_Id   | INT (PK)     | ID del registro de estatus       |
+| Status_Name | NVARCHAR(20) | Estado: Inscrito, Retirado, Aprobado, etc. |
+
 
 ---
 
