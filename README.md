@@ -15,6 +15,7 @@ El enfoque de este módulo es **entender, aplicar y probar las relaciones entre 
 - 🔗 [Relaciones entre Tablas](docs/relaciones_tablas.md)
 - ⚙️ [Diagrama Físico](docs/diagrama_fisico.md)
 - 🛡️ [Estrategia de Seguridad](docs/estrategia_seguridad_datos.md)
+- 📄 [Metadatos](docs/metadatos_sqlserver.md)
 - 🗄️ [Scripts SQL](/scripts_sqlserver)
 
 ## 👨‍💻 Autor
