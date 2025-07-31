@@ -21,25 +21,25 @@ Cada tabla incluye:
 
 | Clave | Campo      | Tipo de dato   | NULL / NOT NULL | Restricciones | DDM        | UNIQUE | Acción FK | Descripción                            |
 |-------|------------|----------------|-----------------|---------------|------------|--------|------------|----------------------------------------|
-| PK    | student_id | INT            |                 |               |            |        |            | Identificador único del estudiante     |
-|       | first_name | NVARCHAR(50)   | NOT NULL        | CHK_NVARCHAR  |            |        |            | Primer nombre del estudiante           |
-|       | last_name  | NVARCHAR(60)   | NOT NULL        | CHK_NVARCHAR  |            |        |            | Apellido del estudiante                |
-|       | email      | NVARCHAR(100)  | NOT NULL        | CHK_NVARCHAR  | MASK_EMAIL | UNIQUE |            | Correo electrónico                     |
-|       | birthdate  | DATE           | NOT NULL        |               |            |        |            | Fecha de nacimiento                    |
-|       | is_active  | BIT            | NOT NULL        |               |            |        |            | Estado activo/inactivo del estudiante  |
-|       | created_at | DATETIME2      | NOT NULL        | CHK_DATE      |            |        |            | Fecha de creación del registro         |
+| PK    | Student_Id | INT            |                 |               |            |        |            | Identificador único del estudiante     |
+|       | First_Name | NVARCHAR(50)   | NOT NULL        | CHK_NVARCHAR  |            |        |            | Primer nombre del estudiante           |
+|       | Last_Name  | NVARCHAR(60)   | NOT NULL        | CHK_NVARCHAR  |            |        |            | Apellido del estudiante                |
+|       | Email      | NVARCHAR(100)  | NOT NULL        | CHK_NVARCHAR  | MASK_EMAIL | UNIQUE |            | Correo electrónico                     |
+|       | BirthDate  | DATE           | NOT NULL        |               |            |        |            | Fecha de nacimiento                    |
+|       | Is_Active  | BIT            | NOT NULL        |               |            |        |            | Estado activo/inactivo del estudiante  |
+|       | Created_At | DATETIME2      | NOT NULL        | CHK_DATE      |            |        |            | Fecha de creación del registro         |
 
 ---
 
 ## 🧾 Tabla: `Programs` (Esquema: `academic_programs`)
 
-| Clave | Campo         | Tipo de dato   | NULL / NOT NULL | Restricciones | DDM | UNIQUE | Acción FK | Descripción                              |
-|-------|---------------|----------------|-----------------|---------------|-----|--------|------------|------------------------------------------|
-| PK    | program_id    | INT            |                 |               |     |        |            | Identificador único del programa         |
-|       | name          | NVARCHAR(100)  | NOT NULL        | CHK_NVARCHAR  |     |        |            | Nombre del programa o carrera            |
-|       | code          | NVARCHAR(20)   | NOT NULL        | CHK_NVARCHAR  |     | UNIQUE |            | Código corto del programa                |
-|       | duration_years| TINYINT        | NOT NULL        |               |     |        |            | Duración del programa en años            |
-|       | is_active     | BIT            | NOT NULL        |               |     |        |            | Indica si el programa está activo        |
+| Clave | Campo          | Tipo de dato   | NULL / NOT NULL | Restricciones | DDM | UNIQUE | Acción FK | Descripción                              |
+|-------|----------------|----------------|-----------------|---------------|-----|--------|------------|------------------------------------------|
+| PK    | Program_Id     | INT            |                 |               |     |        |            | Identificador único del programa         |
+|       | Name           | NVARCHAR(100)  | NOT NULL        | CHK_NVARCHAR  |     |        |            | Nombre del programa o carrera            |
+|       | Code           | NVARCHAR(20)   | NOT NULL        | CHK_NVARCHAR  |     | UNIQUE |            | Código corto del programa                |
+|       | Duration_Years | TINYINT        | NOT NULL        |               |     |        |            | Duración del programa en años            |
+|       | Is_Active      | BIT            | NOT NULL        |               |     |        |            | Indica si el programa está activo        |
 
 ---
 
@@ -47,34 +47,34 @@ Cada tabla incluye:
 
 | Clave | Campo      | Tipo de dato   | NULL / NOT NULL | Restricciones | DDM | UNIQUE | Acción FK          | Descripción                                 |
 |-------|------------|----------------|-----------------|---------------|-----|--------|--------------------|---------------------------------------------|
-| PK    | course_id  | INT            |                 |               |     |        |                    | Identificador único del curso               |
-|       | title      | NVARCHAR(100)  | NOT NULL        | CHK_NVARCHAR  |     |        |                    | Nombre del curso                            |
-|       | code       | NVARCHAR(20)   | NOT NULL        | CHK_NVARCHAR  |     | UNIQUE |                    | Código académico del curso                  |
-|       | credits    | TINYINT        | NOT NULL        |               |     |        |                    | Créditos asignados al curso                 |
-| FK    | program_id | INT            |                 |               |     |        | ON DELETE SET NULL | Programa al que pertenece el curso          |
-|       | is_active  | BIT            | NOT NULL        |               |     |        |                    | Indica si el curso está disponible          |
+| PK    | Course_id  | INT            |                 |               |     |        |                    | Identificador único del curso               |
+|       | Title      | NVARCHAR(100)  | NOT NULL        | CHK_NVARCHAR  |     |        |                    | Nombre del curso                            |
+|       | Code       | NVARCHAR(20)   | NOT NULL        | CHK_NVARCHAR  |     | UNIQUE |                    | Código académico del curso                  |
+|       | Credits    | TINYINT        | NOT NULL        |               |     |        |                    | Créditos asignados al curso                 |
+| FK    | Program_Id | INT            |                 |               |     |        | ON DELETE SET NULL | Programa al que pertenece el curso          |
+|       | Is_Active  | BIT            | NOT NULL        |               |     |        |                    | Indica si el curso está disponible          |
 
 ---
 
 ## 🧾 Tabla: `Enrollments` (Esquema: `course_registration`)
 
-| Clave | Campo        | Tipo de dato   | NULL / NOT NULL | Restricciones | DDM | UNIQUE | Acción FK | Descripción                                         |
-|-------|--------------|----------------|-----------------|---------------|-----|---------|------------|-----------------------------------------------------|
-| PK    | enrollment_id| INT            |                 |               |     |         |            | Identificador único de la inscripción               |
-| FK    | student_id   | INT            |                 |               |     |         |ON DELETE NO ACTION| Estudiante que se inscribió                         |
-| FK    | course_id    | INT            |                 |               |     |         |ON DELETE NO ACTION| Curso al que se inscribió el estudiante             |
-| FK    | status_id    | INT            |                 |               |     |         |ON DELETE NO ACTION| Estado de la inscripción (inscrito, retirado, etc.) |
-|       | enrolled_at  | DATE           | NOT NULL        | CHK_DATE      |     |         |            | Fecha en que se realizó la inscripción              |
-|       | grade        | DECIMAL(4,2)   | NOT NULL        | CHK_NUMBER    |     |         |            | Calificación obtenida (si aplica)                   |
+| Clave | Campo         | Tipo de dato   | NULL / NOT NULL | Restricciones | DDM | UNIQUE | Acción FK | Descripción                                         |
+|-------|---------------|----------------|-----------------|---------------|-----|---------|------------|-----------------------------------------------------|
+| PK    | Enrollment_Id | INT            |                 |               |     |         |            | Identificador único de la inscripción               |
+| FK    | Student_Id    | INT            |                 |               |     |         |ON DELETE NO ACTION| Estudiante que se inscribió                         |
+| FK    | Course_Id     | INT            |                 |               |     |         |ON DELETE NO ACTION| Curso al que se inscribió el estudiante             |
+| FK    | Status_Id     | INT            |                 |               |     |         |ON DELETE NO ACTION| Estado de la inscripción (inscrito, retirado, etc.) |
+|       | Enrolled_At   | DATE           | NOT NULL        | CHK_DATE      |     |         |            | Fecha en que se realizó la inscripción              |
+|       | Grade         | DECIMAL(4,2)   | NOT NULL        | CHK_NUMBER    |     |         |            | Calificación obtenida (si aplica)                   |
 
 ---
 
 ## 🧾 Tabla: `Status` (Esquema: `course_registration`)
 
 | Clave | Campo       | Tipo de dato   | NULL / NOT NULL | Restricciones | DDM | UNIQUE | Acción FK | Descripción                               |
-|-------|-------------|----------------|-----------------|---------------|-----|---------|------------|-------------------------------------------|
-| PK    | status_id   | INT            |                 |               |     |         |            | Identificador del estado de inscripción   |
-|       | status_name | NVARCHAR(20)   | NOT NULL        | CHK_NVARCHAR  |     |         |            | Nombre del estado (ej. Inscrito, Retirado)|
+|-------|-------------|----------------|-----------------|---------------|-----|--------|------------|-------------------------------------------|
+| PK    | Status_Id   | INT            |                 |               |     |        |            | Identificador del estado de inscripción   |
+|       | Status_Name | NVARCHAR(20)   | NOT NULL        | CHK_NVARCHAR  |     | UNIQUE |            | Nombre del estado (ej. Inscrito, Retirado)|
 
 ---
 
