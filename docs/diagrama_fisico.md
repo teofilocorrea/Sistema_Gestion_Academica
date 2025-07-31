@@ -25,7 +25,7 @@ Cada tabla incluye:
 |       | First_Name | NVARCHAR(50)   | NOT NULL        | CHK_NVARCHAR  |            |        |            | Primer nombre del estudiante           |
 |       | Last_Name  | NVARCHAR(60)   | NOT NULL        | CHK_NVARCHAR  |            |        |            | Apellido del estudiante                |
 |       | Email      | NVARCHAR(100)  | NOT NULL        | CHK_NVARCHAR  | MASK_EMAIL | UNIQUE |            | Correo electrónico                     |
-|       | BirthDate  | DATE           | NOT NULL        |               |            |        |            | Fecha de nacimiento                    |
+|       | BirthDate  | DATE           | NOT NULL        | CHK_DATE      |            |        |            | Fecha de nacimiento                    |
 |       | Is_Active  | BIT            | NOT NULL        |               |            |        |            | Estado activo/inactivo del estudiante  |
 |       | Created_At | DATETIME2      | NOT NULL        | CHK_DATE      |            |        |            | Fecha de creación del registro         |
 
@@ -38,7 +38,7 @@ Cada tabla incluye:
 | PK    | Program_Id     | INT            |                 |               |     |        |            | Identificador único del programa         |
 |       | Name           | NVARCHAR(100)  | NOT NULL        | CHK_NVARCHAR  |     |        |            | Nombre del programa o carrera            |
 |       | Code           | NVARCHAR(20)   | NOT NULL        | CHK_NVARCHAR  |     | UNIQUE |            | Código corto del programa                |
-|       | Duration_Years | TINYINT        | NOT NULL        |               |     |        |            | Duración del programa en años            |
+|       | Duration_Years | TINYINT        | NOT NULL        | CHK_INT       |     |        |            | Duración del programa en años            |
 |       | Is_Active      | BIT            | NOT NULL        |               |     |        |            | Indica si el programa está activo        |
 
 ---
@@ -50,7 +50,7 @@ Cada tabla incluye:
 | PK    | Course_id  | INT            |                 |               |     |        |                    | Identificador único del curso               |
 |       | Title      | NVARCHAR(100)  | NOT NULL        | CHK_NVARCHAR  |     |        |                    | Nombre del curso                            |
 |       | Code       | NVARCHAR(20)   | NOT NULL        | CHK_NVARCHAR  |     | UNIQUE |                    | Código académico del curso                  |
-|       | Credits    | TINYINT        | NOT NULL        |               |     |        |                    | Créditos asignados al curso                 |
+|       | Credits    | TINYINT        | NOT NULL        | CHK_INT       |     |        |                    | Créditos asignados al curso                 |
 | FK    | Program_Id | INT            |                 |               |     |        | ON DELETE SET NULL | Programa al que pertenece el curso          |
 |       | Is_Active  | BIT            | NOT NULL        |               |     |        |                    | Indica si el curso está disponible          |
 
