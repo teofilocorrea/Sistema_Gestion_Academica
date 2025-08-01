@@ -6,9 +6,9 @@ Este documento registra los objetos documentados dentro del sistema **AcademicSy
 
 ## 1. 🗃️ Base de Datos
 
-| Objeto         | Nombre          | Descripción agregada                                      |
-|----------------|-----------------|------------------------------------------------------------|
-| Base de datos  | AcademicSystem  |                                                            |
+| Objeto         | Nombre          | Descripción agregada                                                                                              |
+|----------------|-----------------|-------------------------------------------------------------------------------------------------------------------|
+| Base de datos  | AcademicSystem  | Base de datos diseñada para simular un sistema de gestión académica como parte de un portafolio técnico personal. |
 
 ---
 
@@ -16,22 +16,22 @@ Este documento registra los objetos documentados dentro del sistema **AcademicSy
 
 | Esquema             | Descripción agregada                                          |
 |---------------------|---------------------------------------------------------------|
-| student_management  |                                                               |
-| academic_programs   |                                                               |
-| course_catalog      |                                                               |
-| course_registration |                                                               |
+| student_management  | Contiene la tabla de estudiantes y sus datos personales.                                                              |
+| academic_programs   | Agrupa las tablas relacionadas con los programas académicos ofrecidos.                                                            |
+| course_catalog      | Incluye las tablas del catálogo de cursos disponibles en el sistema.                                                             |
+| course_registration | Contiene las tablas encargadas del registro y matrícula de cursos.                                                              |
 
 ---
 
 ## 3. 📊 Tablas
 
-| Esquema             | Tabla         | Descripción agregada                                  |
-|---------------------|---------------|--------------------------------------------------------|
-| student_management  | Students      |                                                        |
-| academic_programs   | Programs      |                                                        |
-| course_catalog      | Courses       |                                                        |
-| course_registration | Enrollments   |                                                        |
-| course_registration | Status        |                                                        |
+| Esquema             | Tabla         | Descripción agregada                                                                                         |
+|---------------------|---------------|--------------------------------------------------------------------------------------------------------------|
+| student_management  | Students      | Tabla que almacena los estudiantes.                                                                          |
+| academic_programs   | Programs      | Tabla que almacena el catálogo de programas académicos disponibles, incluyendo su nombre, duración y estado. |
+| course_catalog      | Courses       | Tabla que almacena el catálogo de cursos ofrecidos por los programas académicos.                             |
+| course_registration | Enrollments   | Tabla que almacena las inscripciones de los estudiantes.                                                     |
+| course_registration | Status        | Tabla maneja los estatus de los estudiante.                                                                  |
 
 ---
 
@@ -39,62 +39,62 @@ Este documento registra los objetos documentados dentro del sistema **AcademicSy
 
 ### 📄 Tabla: `Students` (esquema: `student_management`)
 
-| Columna     | Descripción agregada                                    |
-|-------------|----------------------------------------------------------|
-| student_id  |                                                          |
-| first_name  |                                                          |
-| last_name   |                                                          |
-| email       |                                                          |
-| birthdate   |                                                          |
-| is_active   |                                                          |
-| created_at  |                                                          |
+| Columna    | Descripción agregada                   |
+|------------|----------------------------------------|
+| Student_Id | Identificador único del estudiante.    |
+| First_Name | Primer nombre del estudiante.          |
+| Last_Name  | Apellido del estudiante.               |
+| Email      | Correo electrónico.                    |
+| BirthDate  | Fecha de nacimiento.                   |
+| Is_Active  | Estado activo/inactivo del estudiante. |
+| Created_At | Fecha de creación del registro.        |
 
 ---
 
 ### 📄 Tabla: `Programs` (esquema: `academic_programs`)
 
-| Columna         | Descripción agregada                                    |
-|-----------------|----------------------------------------------------------|
-| program_id      |                                                          |
-| name            |                                                          |
-| code            |                                                          |
-| duration_years  |                                                          |
-| is_active       |                                                          |
+| Columna        | Descripción agregada               |
+|----------------|------------------------------------|
+| Program_Id     | Identificador único del programa.  |
+| Name           | Nombre del programa o carrera.     |
+| Code           | Código corto del programa.         |
+| Duration_Years | Duración del programa en años.     |
+| Is_Active      | Indica si el programa está activo. |
 
 ---
 
 ### 📄 Tabla: `Courses` (esquema: `course_catalog`)
 
-| Columna     | Descripción agregada                                    |
-|-------------|----------------------------------------------------------|
-| course_id   |                                                          |
-| title       |                                                          |
-| code        |                                                          |
-| credits     |                                                          |
-| program_id  |                                                          |
-| is_active   |                                                          |
+| Columna    | Descripción agregada                |
+|------------|-------------------------------------|
+| Course_Id  | Identificador único del curso.      |
+| Title      | Nombre del curso.                   |
+| Code       | Código académico del curso.         |
+| Credits    | Créditos asignados al curso.        |
+| Program_Id | Programa al que pertenece el curso. |
+| Is_Active  | Indica si el curso está disponible. |
 
 ---
 
 ### 📄 Tabla: `Enrollments` (esquema: `course_registration`)
 
-| Columna       | Descripción agregada                                    |
-|---------------|----------------------------------------------------------|
-| enrollment_id |                                                          |
-| student_id    |                                                          |
-| course_id     |                                                          |
-| status_id     |                                                          |
-| enrolled_at   |                                                          |
-| grade         |                                                          |
+| Columna       | Descripción agregada                        |
+|---------------|---------------------------------------------|
+| Enrollment_Id | Identificador único de la inscripción.      |
+| Student_Id    | Identificador foráneo de la tabla Students. |
+| Course_Id     | Identificador foráneo de la tabla Courses.|
+| Status_Id     | Identificador foráneo de la tabla Status.|
+| Enrolled_At   | Fecha de inscripción del estudiante en el curso.|
+| Grade         | Calificación obtenida por el estudiante en el curso.|
 
 ---
 
 ### 📄 Tabla: `Status` (esquema: `course_registration`)
 
-| Columna     | Descripción agregada                                    |
-|-------------|----------------------------------------------------------|
-| status_id   |                                                          |
-| status_name |                                                          |
+| Columna     | Descripción agregada                        |
+|-------------|---------------------------------------------|
+| Status_Id   | Identificador del estado de inscripción.    |
+| Status_Name | Nombre del estado (ej. Inscrito, Retirado). |
 
 ---
 
@@ -102,5 +102,5 @@ Este documento registra los objetos documentados dentro del sistema **AcademicSy
 
 🧠 Documento estructurado por:  
 **Teófilo Correa Rojas**  
-📅 Fecha: `Julio 29, 2025`  
+📅 Fecha: `Julio 30, 2025`  
 📁 Proyecto: *Sistema de Gestión Académica – Acciones en FK*
